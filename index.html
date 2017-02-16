@@ -11,7 +11,7 @@
   <script>
   function myMap() {
     var mapOptions = {
-      center: new google.maps.LatLng(51.5, -0.12),
+      center: new google.maps.LatLng(51.2, -0.12),
       zoom: 10,
       mapTypeId: google.maps.MapTypeId.HYBRID
     }
@@ -20,13 +20,12 @@
     var marker = new google.maps.Marker({position:myCenter});
     marker.setMap(map);
     
-   var myCenter2 = new google.maps.LatLng(41.501,-0.170850);
+     var myCenter2 = new google.maps.LatLng(41.501,-0.170850);
      var marker2 = new google.maps.Marker({position:myCenter2});
       marker2.setMap(map);
+
   }
 </script>
-  
-  
 <script src="https://maps.googleapis.com/maps/api/js?key= AIzaSyCm-Mkwk5L-lmg0_oG0nu-2PfM7T-pYQJM &callback=myMap"></script>
 </body>
 </html>

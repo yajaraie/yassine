@@ -48,11 +48,11 @@
   ctx.fillRect(20,20,150,100);
   
   
-  function draw(event){
+  function draw(e){
     var canvas = document.getElementById("imgCanvas");
     var context = canvas.getContext("2d");
-    posx = event.clientX;
-    posy = event.clientY;
+    posx = e.clientX;
+    posy = e.clientY;
     context.fillStyle = "#FF0000";
     context.fillRect (posx, posy, 4, 4);
 }

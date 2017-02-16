@@ -20,11 +20,11 @@
     context.drawImage(img, (0),(0));
 }
 
-function draw(e){
+function draw(event){
     var canvas = document.getElementById("imgCanvas");
     var context = canvas.getContext("2d");
-    posx = e.clientX;
-    posy = e.clientY;
+    posx = event.clientX;
+    posy = event.clientY;
     context.fillStyle = "#FF0000";
     context.fillRect (posx, posy, 4, 4);
 }

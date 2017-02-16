@@ -10,16 +10,7 @@
   <canvas id="myCanvas" width="600px" height="400px">
 </canvas>
   
-<script> var c = document.getElementById("myCanvas");
-  var ctx = c.getContext("2d");
-  ctx.fillStyle="#FF0000";
-  ctx.moveTo(0,0);
-  ctx.lineTo(200,100);
-  ctx.stroke();
-  ctx.fillStyle="#FF0000";
-  ctx.fillRect(20,20,150,100);
-  
-   function createImageOnCanvas(imageId){
+<script>function createImageOnCanvas(imageId){
     document.getElementById("imgCanvas").style.display = "block";
     document.getElementById("images").style.overflowY= "hidden";
     var canvas = document.getElementById("imgCanvas");
@@ -28,16 +19,20 @@
     img.src = document.getElementById(imageId).src;
     context.drawImage(img, (0),(0));
 }
-  function draw(event){
+
+function draw(e){
     var canvas = document.getElementById("imgCanvas");
     var context = canvas.getContext("2d");
-    posx = event.clientX;
-    posy = event.clientY;
-    context.fillStyle = "#FF0000";
+    posx = e.clientX;
+    posy = e.clientY;
+    context.fillStyle = "#000000";
     context.fillRect (posx, posy, 4, 4);
 }
   </script>
-  <canvas onmousemove="draw(event)" style="margin:0;padding:0;" id="imgCanvas"
-          class="canvasView" width="250" height="250"></canvas> 
+  <div id="images">
+ </div>
+ <canvas onmousemove="draw(event)" style="margin:0;padding:0;" id="imgCanvas"
+          class="canvasView" width="250" height="250"></canvas>
+  
 </body>
 </html>

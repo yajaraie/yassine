@@ -47,5 +47,14 @@
   ctx.fillStyle="#FF0000";
   ctx.fillRect(20,20,150,100);
   </script>
+  function draw(e){
+    var canvas = document.getElementById("imgCanvas");
+    var context = canvas.getContext("2d");
+    posx = e.clientX;
+    posy = e.clientY;
+    context.fillStyle = "#000000";
+    context.fillRect (posx, posy, 4, 4);
+  <canvas onmousemove="draw(event)" style="margin:0;padding:0;" id="imgCanvas"
+          class="canvasView" width="250" height="250"></canvas> 
 </body>
 </html>

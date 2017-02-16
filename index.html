@@ -19,26 +19,14 @@
     var map = new google.maps.Map(document.getElementById("map"), mapOptions);
     var marker = new google.maps.Marker({position:myCenter});
     marker.setMap(map);
+    
+    var myCenter2 = new google.maps.LatLng(51.508742,-0.120850);
+    
+    var marker2 = new google.maps.Marker2({position:myCenter2});
+    marker2.setMap(map);
   }
 </script>
-  <script>
-
-function myMap() {
-  var myLatLng = {lat: -25.363, lng: 131.044};
-
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 4,
-    center: myLatLng
-  });
-
-  var marker = new google.maps.Marker({
-    position: myLatLng,
-    map: map,
-    title: 'Hello World!'
-  });
-}    </script>
-  <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key= AIzaSyCm-Mkwk5L-lmg0_oG0nu-2PfM7T-pYQJM &signed_in=true&callback=initMap"></script>
+  
   
 <script src="https://maps.googleapis.com/maps/api/js?key= AIzaSyCm-Mkwk5L-lmg0_oG0nu-2PfM7T-pYQJM &callback=myMap"></script>
 </body>

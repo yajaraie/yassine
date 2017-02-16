@@ -3,7 +3,7 @@
 <head>
   <title>My super site!</title>
 </head>
-<body>
+<body onload>
   <h1>My super site</h1>
   
   <div id="map" style="width:400px;height:400px;background:yellow"></div>
@@ -27,5 +27,11 @@
   }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key= AIzaSyCm-Mkwk5L-lmg0_oG0nu-2PfM7T-pYQJM &callback=myMap"></script>
+ <script> 
+ $.get('',function(data,status){
+  alert(data.query.results.item.title);
+  alert(data.query.results.item.condition.temp);
+  });
+  </script>
 </body>
 </html>

@@ -1,36 +1,71 @@
 <!DOCTYPE html>
 <html>
 <head>
-  
+  <script
+  src=https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22nome%2C%20ak%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys</script>
   <title>My super site!</title>
 </head>
-<body>
+<body onload>
+  <h1>My super site</h1>
   
+  <div id="map" style="width:400px;height:400px;background:yellow"></div>
+  
+  <script>
+  function myMap() {
+    var mapOptions = {
+      center: new google.maps.LatLng(51.2, -0.12),
+      zoom: 10,
+      mapTypeId: google.maps.MapTypeId.HYBRID
+    }
+    var myCenter = new google.maps.LatLng(51.508742,-0.120850);
+    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+    var marker = new google.maps.Marker({position:myCenter});
+    marker.setMap(map);
+    
+     var myCenter2 = new google.maps.LatLng(41.501,-0.170850);
+     var marker2 = new google.maps.Marker({position:myCenter2});
+      marker2.setMap(map);
+
+  }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key= AIzaSyCm-Mkwk5L-lmg0_oG0nu-2PfM7T-pYQJM &callback=myMap"></script>
+ <script> 
+ $.get('',function(data,status){
+  alert(data.query.results.item.title);
+  alert(data.query.results.item.condition.temp);
+  });
+  </script>
   <canvas id="myCanvas" width="600px" height="400px">
 </canvas>
   
-<script>function createImageOnCanvas(imageId){
-document.getElementById("imgCanvas").style.display = "block";
-document.getElementById("images").style.overflowY= "hidden";
-var canvas = document.getElementById("imgCanvas");
-var context = canvas.getContext("2d");
-var img = new Image(300,300);
-img.src = document.getElementById(imageId).src;
-context.drawImage(img, (0),(0));
+<script> var c = document.getElementById("myCanvas");
+  var ctx = c.getContext("2d");
+  ctx.fillStyle="#FF0000";
+  ctx.moveTo(0,0);
+  ctx.lineTo(200,100);
+  ctx.stroke();
+  ctx.fillStyle="#FF0000";
+  ctx.fillRect(20,20,150,100);
+  
+   function createImageOnCanvas(imageId){
+    document.getElementById("imgCanvas").style.display = "block";
+    document.getElementById("images").style.overflowY= "hidden";
+    var canvas = document.getElementById("imgCanvas");
+    var context = canvas.getContext("2d");
+    var img = new Image(300,300);
+    img.src = document.getElementById(imageId).src;
+    context.drawImage(img, (0),(0));
 }
-function draw(e){
-var canvas = document.getElementById("imgCanvas");
-var context = canvas.getContext("2d");
-posx = e.clientX;
-posy = e.clientY;
-context.fillStyle = "#FF0000";
-context.fillRect (posx, posy, 4, 4);xt.fillRect (posx, posy, 4, 4);
+  function draw(event){
+    var canvas = document.getElementById("imgCanvas");
+    var context = canvas.getContext("2d");
+    posx = event.clientX;
+    posy = event.clientY;
+    context.fillStyle = "#FF0000";
+    context.fillRect (posx, posy, 4, 4);
 }
   </script>
-  <div id="images">
- </div>
- <canvas onmousemove="draw(event)" style="margin:0;padding:0;" id="imgCanvas"
-          class="canvasView" width="250" height="250"></canvas>
-  
+  <canvas onmousemove="draw(event)" style="margin:0;padding:0;" id="imgCanvas"
+          class="canvasView" width="250" height="250"></canvas> 
 </body>
 </html>
